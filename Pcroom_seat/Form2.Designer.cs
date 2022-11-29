@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -201,7 +200,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 35);
+            this.button1.Location = new System.Drawing.Point(93, 35);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -211,7 +210,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(93, 35);
+            this.button2.Location = new System.Drawing.Point(174, 35);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -221,12 +220,13 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(174, 35);
+            this.button3.Location = new System.Drawing.Point(15, 35);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
             this.button3.Text = "전체";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -234,8 +234,9 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 3;
-            this.button4.Text = "카테고리 4";
+            this.button4.Text = "밥류";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label1
             // 
@@ -254,8 +255,9 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 5;
-            this.button5.Text = "카테고리 5";
+            this.button5.Text = "과자";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -263,8 +265,9 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 6;
-            this.button6.Text = "카테고리 6";
+            this.button6.Text = "음료";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -272,42 +275,40 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 7;
-            this.button7.Text = "카테고리 7";
+            this.button7.Text = "기타";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 70);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(90, 90);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(127, 70);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(90, 90);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Location = new System.Drawing.Point(250, 70);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(90, 90);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
             // 
@@ -332,7 +333,6 @@
             // pictureBox6
             // 
             this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(12, 218);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(90, 90);
@@ -384,25 +384,27 @@
             // des7_2
             // 
             this.des7_2.AutoSize = true;
-            this.des7_2.Location = new System.Drawing.Point(151, 311);
+            this.des7_2.Location = new System.Drawing.Point(139, 314);
             this.des7_2.Name = "des7_2";
-            this.des7_2.Size = new System.Drawing.Size(45, 12);
+            this.des7_2.Size = new System.Drawing.Size(67, 12);
             this.des7_2.TabIndex = 19;
-            this.des7_2.Text = "3500 원";
+            this.des7_2.Text = "(음식 가격)";
+            this.des7_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // des6_2
             // 
             this.des6_2.AutoSize = true;
-            this.des6_2.Location = new System.Drawing.Point(36, 311);
+            this.des6_2.Location = new System.Drawing.Point(23, 313);
             this.des6_2.Name = "des6_2";
-            this.des6_2.Size = new System.Drawing.Size(45, 12);
+            this.des6_2.Size = new System.Drawing.Size(67, 12);
             this.des6_2.TabIndex = 21;
-            this.des6_2.Text = "3000 원";
+            this.des6_2.Text = "(음식 가격)";
+            this.des6_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.des6_2.Click += new System.EventHandler(this.des6_2_Click);
             // 
             // pictureBox7
             // 
             this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(127, 218);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(90, 90);
@@ -419,7 +421,7 @@
             this.des6_1.Name = "des6_1";
             this.des6_1.Size = new System.Drawing.Size(90, 18);
             this.des6_1.TabIndex = 26;
-            this.des6_1.Text = "김밥";
+            this.des6_1.Text = "(음식 이름)";
             this.des6_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // des7_1
@@ -430,7 +432,7 @@
             this.des7_1.Name = "des7_1";
             this.des7_1.Size = new System.Drawing.Size(90, 18);
             this.des7_1.TabIndex = 27;
-            this.des7_1.Text = "떡볶이";
+            this.des7_1.Text = "(음식 이름)";
             this.des7_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox9
@@ -1590,7 +1592,6 @@
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form2_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

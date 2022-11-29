@@ -38,3 +38,20 @@ C:\Users\USER\Desktop\Pcroom_seat\Pcroom_seat\obj\Debug\Pcroom_seat.csproj.Gener
 C:\Users\USER\Desktop\Pcroom_seat\Pcroom_seat\obj\Debug\Pcroom_seat.csproj.CoreCompileInputs.cache
 C:\Users\USER\Desktop\Pcroom_seat\Pcroom_seat\obj\Debug\Pcroom_seat.exe
 C:\Users\USER\Desktop\Pcroom_seat\Pcroom_seat\obj\Debug\Pcroom_seat.pdb
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.csproj.AssemblyReference.cache
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.Form1.resources
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.Form2.resources
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.Form3.resources
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.Form4.resources
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.Properties.Resources.resources
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.csproj.GenerateResource.cache
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.csproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.exe
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.pdb
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\bin\Debug\Pcroom_seat.exe.config
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\bin\Debug\Pcroom_seat.exe
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\bin\Debug\Pcroom_seat.pdb
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\bin\Debug\Oracle.DataAccess.dll
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\bin\Debug\Oracle.Database.Extensions.dll
+C:\Users\user\OneDrive\바탕 화면\Pcroom_seatnewenew\Pcroom_seat\obj\Debug\Pcroom_seat.csproj.CopyComplete
