@@ -14,10 +14,7 @@ namespace Pcroom_seat
 {
     public partial class Form2 : Form
     {
-        string category;
         Image img;
-        int item_value;
-
         OracleConnection con;
         OracleCommand dcom;
         OracleDataAdapter da; // Data Provider인 DBAdapter 입니다.
@@ -27,19 +24,10 @@ namespace Pcroom_seat
         OracleCommandBuilder myCommandBuilder; // 추가, 수정, 삭제시에 필요한 명령문을 자동으로 작성해주는 객체입니다.
         DataTable foodTable;// DataTable 객체입니다.
 
-        public void DB_Open_food()
-        {
-     
-        }
         public Form2()
         {
             InitializeComponent();
-
-
-            button1.BackColor = Color.CadetBlue;
         }
-
-
 
         private void button8_Click(object sender, EventArgs e)
         {
@@ -47,63 +35,21 @@ namespace Pcroom_seat
             newform3.ShowDialog();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            img = Image.FromFile(@"C:\pcroom\jja.jpg");
-            Form3 newform3 = new Form3("짜장라면",2500, img);
-            newform3.ShowDialog();
-        }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)         //기본적으로 카테고리는 전체를 선택함
         {
-            //pictureBox3.Load(@"C:\Users\user\OneDrive\바탕화면\pcroom.jja.jpg");  
+            changecategory("All");
         }
         void draw_img(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            g.DrawImage(img,12,270,90,90);
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            img = Image.FromFile(@"C:\pcroom\sin.jpg");
-            Form3 newform3 = new Form3("신라면", 2000,img);
-            newform3.ShowDialog();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            category = "A";
-            changecategory("A");
-            Invalidate();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            category = "B";
-            changecategory("B");
-            Invalidate();
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            img = Image.FromFile(@"C:\pcroom\kimbab.png");
-            Form3 newform3 = new Form3("김밥", 3000, img);
-            newform3.ShowDialog();
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            img = Image.FromFile(@"C:\pcroom\dduck.png");
-            Form3 newform3 = new Form3("떡볶이", 3500, img);
-            newform3.ShowDialog();
-        }
-
-        private void changecategory(string category_selected)
+        private void changecategory(string category_selected)  //카테고리 변경
         {
             string type_search = category_selected;
 
-            button1.BackColor = Color.Gray;
+            button1.BackColor = Color.Gray;  //버튼 색 변경(어느 카테고리인지 알 수 있게)
             button2.BackColor = Color.Gray;
             button3.BackColor = Color.Gray;
             button4.BackColor = Color.Gray;
@@ -111,7 +57,7 @@ namespace Pcroom_seat
             button6.BackColor = Color.Gray;
             button7.BackColor = Color.Gray;
 
-            if (type_search == "A")
+            if (type_search == "A")                         //선택한 카테고리가 무었인지
             {
                 button1.BackColor = Color.CadetBlue;
             } else if(type_search == "B"){
@@ -123,29 +69,31 @@ namespace Pcroom_seat
             } else if(type_search == "E"){
                 button6.BackColor = Color.CadetBlue;
             } else if(type_search == "F"){
-                button7.BackColor = Color.CadetBlue;
+                button7.BackColor = Color.CadetBlue;            //선택된 카테고리의 버튼 색 변경
             }
 
 
 
             try
             {
-                for (int j = 1; j < 40; j++)
+                for (int j = 1; j < 40; j++)                        // 컨트롤 내용 초기화
                 {
                     this.Controls["picturebox" + j].BackgroundImage = null;
                     this.Controls["des" + j + "_2"].Text = "(음식 가격)";
-                    this.Controls["des" + j + "_1"].Text = "(음식 이름)";
+                    this.Controls["des" + j + "_1"].Text = "(음식 이름)"; 
                 }
+
+                string cloudconnstr = "User Id=PCROOM; Password=PCROOM; Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.142.10)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = xe) ) );";
                 string connstr = "User Id=Arc; Password=1111; Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = xe) ) );";
                 string commandString = "select * from foods where foodcategory =:selectedcategory";
 
-                if (type_search == "All")
+                if (type_search == "All")           //찾는 타입이 '전체' 일 경우
                 {
                     button3.BackColor = Color.CadetBlue;
                     commandString = "select * from foods";
                 }
-
-                con = new OracleConnection(connstr);
+                //con = new OracleConnection(cloudconnstr);  //시연용           <!시연할떄는 코드 바꿔야함!>
+                con = new OracleConnection(connstr);     //코딩용               <!시연할떄는 코드 바꿔야함!>
                 con.Open();
                 dcom = new OracleCommand(commandString, con);
 
@@ -156,15 +104,11 @@ namespace Pcroom_seat
                 int i = 1;
                 while (dr.Read())
                 {
-
-                    this.Controls["des"+i+"_2"].Text=dr["foodvalue"].ToString()+" 원";
-                    this.Controls["des" + i + "_1"].Text = dr["foodname"].ToString();
-                    //img = Image.FromFile(@"C:\pcroom\jja.jpg");
+                    this.Controls["des"+i+"_2"].Text=dr["foodvalue"].ToString()+" 원";   //DB에서 찾은 내용
+                    this.Controls["des" + i + "_1"].Text = dr["foodname"].ToString();    //컨트롤에 순차적으로 적용
                     img = Image.FromFile(@dr["img"].ToString());
                     this.Controls["picturebox"+i].BackgroundImage=img;
                     this.Controls["picturebox" + i].BackgroundImageLayout = ImageLayout.Stretch;
-                    //this.Controls.OfType<PictureBox>
-
                     i++;
                 }
                 dr.Close();
@@ -178,80 +122,138 @@ namespace Pcroom_seat
             {
                 MessageBox.Show(ex2.Message);
             }
-            /*
-            switch (category)
-            {
-                case 1:
-                    type_search = "A";
-                    break;
-                case 2:
-                    type_search = "B";
-                    break;
-                case 3:
-                    type_search = "C";
-                    break;
-            }
-            for (int i=0; i<5; i++)
-            {
-                //this.Controls["des"+i+"_2"].Text
-                //this.Controls["des" + i + "_1"].Text
-                //this.Controls["Des" + i + "_button"].Text
-                //this.Controls["picturebox"+i].image=img;
-            }
-            */
         }
 
-        private void Des1_button_Click(object sender, EventArgs e)
+        private void Des1_button_Click(object sender, EventArgs e) //이제 안씀
         {
-            int numonlyvalue = int.Parse(Regex.Replace(des1_2.Text, @"\D", ""));
-            Form3 newform3 = new Form3(des1_1.Text, numonlyvalue, img);
-            newform3.ShowDialog();
         }
 
-        private void Des2_button_Click(object sender, EventArgs e)
+        private void Des2_button_Click(object sender, EventArgs e)  //이제 안씀
         {  
-            int numonlyvalue = int.Parse(Regex.Replace(des2_2.Text, @"\D", ""));
-            Form3 newform3 = new Form3(des2_1.Text, numonlyvalue, img);
-            newform3.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e) //전체
+        private void button1_Click(object sender, EventArgs e) //카테고리_A (라면)
         {
-            category = "All";
+            changecategory("A");
+        }
+
+        private void button2_Click(object sender, EventArgs e) //카테고리_B (분식)
+        {
+            changecategory("B");
+        }
+
+        private void button3_Click(object sender, EventArgs e) //카테고리_전체
+        {
             changecategory("All");
-            Invalidate();
         }
 
-        private void button4_Click(object sender, EventArgs e) //밥류
+        private void button4_Click(object sender, EventArgs e) //카테고리_C (밥류)
         {
-            category = "C";
             changecategory("C");
-            Invalidate();
         }
 
-        private void button5_Click(object sender, EventArgs e) //음료
+        private void button5_Click(object sender, EventArgs e) //카테고리_D (음료)
         {
-            category = "D";
             changecategory("D");
-            Invalidate();
         }
 
-        private void button6_Click(object sender, EventArgs e) //과자
+        private void button6_Click(object sender, EventArgs e) //카테고리_E (과자)
         {
-            category = "E";
             changecategory("E");
-            Invalidate();
         }
-        private void button7_Click(object sender, EventArgs e) //기타
+        private void button7_Click(object sender, EventArgs e) //카테고리_F (기타)
         {
-            category = "F";
             changecategory("F");
-            Invalidate();
         }
 
         private void des6_2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void foodSelected(int i)                        //음식을 선택하였을떄
+        {
+            if(this.Controls["picturebox" + i].BackgroundImage != null)   //공백인 컨트롤은 선택되지 않도록
+            {
+                img = this.Controls["picturebox" + i].BackgroundImage;   
+                int numonlyvalue = int.Parse(Regex.Replace(this.Controls["des" + i + "_2"].Text, @"\D", ""));
+                Form3 newform3 = new Form3(this.Controls["des" + i + "_1"].Text, numonlyvalue, img);
+                newform3.ShowDialog();                           //img= 선택한 backgroundimgage에서 추출
+            }                                                    //numonlyvalue = 가격에서 정규화로 숫자만 추출
+        }                                                        //제품 이름 = 컨트롤에서 text 추출
+                                                                 //위 3개를 인수로 폼 3 생성
+        private void pictureBox1_Click(object sender, EventArgs e)      //아래로 이미지박스(1~15) 선택할때 코드
+        {
+            foodSelected(1);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            foodSelected(2);
+        }
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            foodSelected(3);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            foodSelected(4);
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            foodSelected(5);
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            foodSelected(6);
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            foodSelected(7);
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            foodSelected(8);
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            foodSelected(9);
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            foodSelected(10);
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            foodSelected(11);
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            foodSelected(12);
+        }
+
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            foodSelected(13);
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            foodSelected(14);
+        }
+
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+            foodSelected(15);
         }
     }
 }

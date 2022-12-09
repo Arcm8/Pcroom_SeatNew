@@ -1,0 +1,32 @@
+create table foods(id number primary key, foodname varchar(20),foodcategory varchar(10) ,foodvalue varchar(20), img varchar(100), quntity varchar(20))
+A -- 라면 /  B -- 분식 / C -- 밥류 / D -- 과자 / E -- 음료 / F -- 기타
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(1, '짜장라면' , 'A' , '2500' , 'C:\pcroom\jja.jpg' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(2, '신라면' ,    'A' , '2000' , 'C:\pcroom\sin.jpg' ,       '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(3, '김밥' ,       'B' , '3000' , 'C:\pcroom\kimbab.png' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(4, '떡볶이' ,    'B' , '3500' , 'C:\pcroom\dduck.png' ,   '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(5, '불닭볶음면' , 'A' , '3000' , 'C:\pcroom\buldak.jfif' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(6, '참깨라면' , 'A' , '2800' , 'C:\pcroom\cham.jfif' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(7, '낙지볶음밥' , 'C' , '5000' , 'C:\pcroom\nakji.jpg' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(8, '제육볶음밥' , 'C' , '5500' , 'C:\pcroom\jaeyuk.jfif' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(9, '짜장밥' , 'C' , '5000' , 'C:\pcroom\jjajangbab.jfif' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(10, '칠성사이다' , 'E' , '1300' , 'C:\pcroom\chilsung.jpg' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(11, '헛개차' , 'E' , '1700' , 'C:\pcroom\hut.jpg' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(12, '밀키스' , 'E' , '1300' , 'C:\pcroom\milkis.jpg' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(13, '오징어칩' , 'D' , '1500' , 'C:\pcroom\ojingachip.jfif' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(14, '포카칩' , 'D' , '1500' , 'C:\pcroom\pocachip.jfif' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(15, '만두 (6개)' , 'B' , '2500' , 'C:\pcroom\mando.jfif' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(16, '치즈소시지' , 'F' , '2000' , 'C:\pcroom\sosiji.jpg' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(17, '짜장라면' , 'A' , '2500' , 'C:\pcroom\' , '100' )
+insert into foods (id , foodname , foodcategory , foodvalue , img , quntity) values(18, '짜장라면' , 'A' , '2500' , 'C:\pcroom\jja.jpg' , '100' )
+
+create table user_data (
+    user_id varchar(20) primary key, 
+    user_password varchar(20), 
+    user_name varchar(20), 
+    left_time number , 
+    phonenumber varchar(20)
+    );
+
+insert into user_data (user_id , user_password , user_name , left_time , phonenumber ) VALUES ( 'woo29864' , 'passwd1' , '이름1' , 500000 , '010-1234-5678');
+insert into user_data (user_id , user_password , user_name , left_time , phonenumber ) VALUES ( 'arc' , 'passwd2' , '이름2' , 30000 , '010-3334-5678');
+insert into user_data (user_id , user_password , user_name , left_time , phonenumber ) VALUES ( 'randomuser1' , 'passwd3' , '이름3' , 30 , '010-3334-5678');

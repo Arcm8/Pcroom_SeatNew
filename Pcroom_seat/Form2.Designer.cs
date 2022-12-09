@@ -311,6 +311,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox4
             // 
@@ -320,6 +321,7 @@
             this.pictureBox4.Size = new System.Drawing.Size(90, 90);
             this.pictureBox4.TabIndex = 12;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox5
             // 
@@ -329,6 +331,7 @@
             this.pictureBox5.Size = new System.Drawing.Size(90, 90);
             this.pictureBox5.TabIndex = 13;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox6
             // 
@@ -371,6 +374,7 @@
             this.des1_2.Size = new System.Drawing.Size(45, 12);
             this.des1_2.TabIndex = 17;
             this.des1_2.Text = "2500 원";
+            this.des1_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // des2_2
             // 
@@ -380,6 +384,7 @@
             this.des2_2.Size = new System.Drawing.Size(45, 12);
             this.des2_2.TabIndex = 18;
             this.des2_2.Text = "2000 원";
+            this.des2_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // des7_2
             // 
@@ -443,6 +448,7 @@
             this.pictureBox9.Size = new System.Drawing.Size(90, 90);
             this.pictureBox9.TabIndex = 30;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
             // 
             // pictureBox10
             // 
@@ -452,6 +458,7 @@
             this.pictureBox10.Size = new System.Drawing.Size(90, 90);
             this.pictureBox10.TabIndex = 31;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
             // pictureBox11
             // 
@@ -461,6 +468,7 @@
             this.pictureBox11.Size = new System.Drawing.Size(90, 90);
             this.pictureBox11.TabIndex = 32;
             this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
             // 
             // pictureBox12
             // 
@@ -470,6 +478,7 @@
             this.pictureBox12.Size = new System.Drawing.Size(90, 90);
             this.pictureBox12.TabIndex = 33;
             this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // pictureBox8
             // 
@@ -479,6 +488,7 @@
             this.pictureBox8.Size = new System.Drawing.Size(90, 90);
             this.pictureBox8.TabIndex = 34;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // pictureBox13
             // 
@@ -488,6 +498,7 @@
             this.pictureBox13.Size = new System.Drawing.Size(90, 90);
             this.pictureBox13.TabIndex = 35;
             this.pictureBox13.TabStop = false;
+            this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
             // 
             // pictureBox14
             // 
@@ -497,6 +508,7 @@
             this.pictureBox14.Size = new System.Drawing.Size(90, 90);
             this.pictureBox14.TabIndex = 36;
             this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
             // 
             // pictureBox15
             // 
@@ -506,6 +518,7 @@
             this.pictureBox15.Size = new System.Drawing.Size(90, 90);
             this.pictureBox15.TabIndex = 37;
             this.pictureBox15.TabStop = false;
+            this.pictureBox15.Click += new System.EventHandler(this.pictureBox15_Click);
             // 
             // des3_1
             // 
@@ -1460,7 +1473,7 @@
             this.AutoScrollMinSize = new System.Drawing.Size(200, 200);
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(621, 561);
+            this.ClientSize = new System.Drawing.Size(638, 561);
             this.Controls.Add(this.des40_2);
             this.Controls.Add(this.des40_1);
             this.Controls.Add(this.des39_2);
