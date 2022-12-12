@@ -18,6 +18,7 @@ namespace Pcroom_seat
         int product_quntity;     //제품의 수량
         int order_value;         //주문한 가격
         String order_name;       //주문한 제품 이름
+        Boolean isordercompleted; //주문이 완료되었는지
 
         OracleConnection con;
         OracleCommand dcom;
@@ -72,14 +73,25 @@ namespace Pcroom_seat
                     product_quntity = int.Parse(dr[0].ToString());      //현제 남아있는 제품의 수량
                 }
 
-                String commandString = "UPDATE foods SET quntity=:quntity WHERE foodname=:food_name";
+                if (product_quntity-order_quntity < 0)  //제품의 수량이 부족할때
+                {
+                    isordercompleted = false;
+                    MessageBox.Show("제품의 수량이 부족해 결제가 실패했습니다!");
+                    Close();
+                }
+                else
+                {
+                    isordercompleted = true;
+                    String commandString = "UPDATE foods SET quntity=:quntity WHERE foodname=:food_name";
 
-                dcom = new OracleCommand(commandString, con);
-                                   // UPDATE할 제품의 수량 = 현제 남아있는 제품 수량 - 주문한 수량
-                dcom.Parameters.Add("quntity", OracleDbType.Int32).Value = product_quntity-order_quntity;
-                dcom.Parameters.Add("food_name", OracleDbType.Varchar2, 20).Value = order_name;
+                    dcom = new OracleCommand(commandString, con);
+                    // UPDATE할 제품의 수량 = 현제 남아있는 제품 수량 - 주문한 수량
+                    dcom.Parameters.Add("quntity", OracleDbType.Int32).Value = product_quntity - order_quntity;
+                    dcom.Parameters.Add("food_name", OracleDbType.Varchar2, 20).Value = order_name;
 
-                dcom.ExecuteNonQuery();  //DB 업데이트
+                    dcom.ExecuteNonQuery();  //DB 업데이트
+
+                }
 
             }
             catch (DataException ex)
@@ -90,8 +102,11 @@ namespace Pcroom_seat
             {
                 MessageBox.Show(ex2.Message);
             }
-            MessageBox.Show("주문이 완료되었습니다!"); //주문 완료 메시지
-            Close();                                   //끝
+            if (isordercompleted)
+            {
+                MessageBox.Show("주문이 완료되었습니다!"); //주문 완료 메시지
+                Close();
+            }                                               //끝
         }
     }
 }

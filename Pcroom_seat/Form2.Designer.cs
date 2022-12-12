@@ -303,6 +303,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Location = new System.Drawing.Point(250, 70);
@@ -1473,7 +1474,7 @@
             this.AutoScrollMinSize = new System.Drawing.Size(200, 200);
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(638, 561);
+            this.ClientSize = new System.Drawing.Size(655, 561);
             this.Controls.Add(this.des40_2);
             this.Controls.Add(this.des40_1);
             this.Controls.Add(this.des39_2);

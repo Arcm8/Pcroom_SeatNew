@@ -78,6 +78,7 @@ namespace Pcroom_seat
             {
                 for (int j = 1; j < 40; j++)                        // 컨트롤 내용 초기화
                 {
+                    this.Controls["picturebox" + j].BackColor = SystemColors.Control;
                     this.Controls["picturebox" + j].BackgroundImage = null;
                     this.Controls["des" + j + "_2"].Text = "(음식 가격)";
                     this.Controls["des" + j + "_1"].Text = "(음식 이름)"; 
@@ -106,7 +107,17 @@ namespace Pcroom_seat
                 {
                     this.Controls["des"+i+"_2"].Text=dr["foodvalue"].ToString()+" 원";   //DB에서 찾은 내용
                     this.Controls["des" + i + "_1"].Text = dr["foodname"].ToString();    //컨트롤에 순차적으로 적용
-                    img = Image.FromFile(@dr["img"].ToString());
+                    
+                    if (int.Parse(dr["quntity"].ToString()) <= 0)           //음식 제고가 0이면
+                    {
+                        img = Image.FromFile(@"C:\pcroom\soldout.png");
+                        this.Controls["picturebox" + i].BackColor = Color.White;  //백컬러 색을 화이트로
+                                                                                  //해서 제고가 0인 곳을 구분
+                    }
+                    else
+                    {
+                        img = Image.FromFile(@dr["img"].ToString());
+                    }
                     this.Controls["picturebox"+i].BackgroundImage=img;
                     this.Controls["picturebox" + i].BackgroundImageLayout = ImageLayout.Stretch;
                     i++;
@@ -175,10 +186,14 @@ namespace Pcroom_seat
         {
             if(this.Controls["picturebox" + i].BackgroundImage != null)   //공백인 컨트롤은 선택되지 않도록
             {
-                img = this.Controls["picturebox" + i].BackgroundImage;   
-                int numonlyvalue = int.Parse(Regex.Replace(this.Controls["des" + i + "_2"].Text, @"\D", ""));
-                Form3 newform3 = new Form3(this.Controls["des" + i + "_1"].Text, numonlyvalue, img);
-                newform3.ShowDialog();                           //img= 선택한 backgroundimgage에서 추출
+                if(this.Controls["picturebox" + i].BackColor!=Color.White) {
+                                                                                //soldout된 제품은 선택 X
+                    img = this.Controls["picturebox" + i].BackgroundImage;
+                    int numonlyvalue = int.Parse(Regex.Replace(this.Controls["des" + i + "_2"].Text, @"\D", ""));
+                    Form3 newform3 = new Form3(this.Controls["des" + i + "_1"].Text, numonlyvalue, img);
+                    newform3.ShowDialog();
+                    Close();
+                }                          //img= 선택한 backgroundimgage에서 추출
             }                                                    //numonlyvalue = 가격에서 정규화로 숫자만 추출
         }                                                        //제품 이름 = 컨트롤에서 text 추출
                                                                  //위 3개를 인수로 폼 3 생성

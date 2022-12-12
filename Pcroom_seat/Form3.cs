@@ -45,8 +45,11 @@ namespace Pcroom_seat
 
         private void button2_Click(object sender, EventArgs e)   //수량 -
         {
-            quntity--;
-            label1.Text = "수량 : " + quntity.ToString() + " 개";
+            if (quntity != 0)
+            {
+                quntity--;
+                label1.Text = "수량 : " + quntity.ToString() + " 개";
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)  //확인
