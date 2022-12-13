@@ -154,7 +154,7 @@ namespace Pcroom_seat
 
             try // Initial SEAT INSERT문
             {
-                String initialsql = "INSERT INTO SEAT (SEAT_ID , USER_ID , IS_ON ) VALUES (:currseatid , :curruser , 'O')";
+                String initialsql = "INSERT INTO SEAT (SEAT_ID , USER_ID , IS_ON ) VALUES (:currseatid , :curruser , '1')";
                 dcom = new OracleCommand(initialsql, con);
                 dcom.Parameters.Add("currseatid", OracleDbType.Int32).Value = seatno;
                 dcom.Parameters.Add("curruser", OracleDbType.Varchar2, 20).Value = currusername;
@@ -179,7 +179,7 @@ namespace Pcroom_seat
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 newform2 = new Form2();
+            Form2 newform2 = new Form2(seatno);
             newform2.ShowDialog();
 
         }

@@ -14,6 +14,8 @@ namespace Pcroom_seat
 {
     public partial class Form2 : Form
     {
+        int seat_num;
+
         Image img;
         OracleConnection con;
         OracleCommand dcom;
@@ -28,8 +30,13 @@ namespace Pcroom_seat
         {
             InitializeComponent();
         }
+        public Form2(int seatnum)
+        {
+            seat_num= seatnum;
+            InitializeComponent();
+        }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e) //안씀
         {
             Form3 newform3 = new Form3();
             newform3.ShowDialog();
@@ -190,7 +197,7 @@ namespace Pcroom_seat
                                                                                 //soldout된 제품은 선택 X
                     img = this.Controls["picturebox" + i].BackgroundImage;
                     int numonlyvalue = int.Parse(Regex.Replace(this.Controls["des" + i + "_2"].Text, @"\D", ""));
-                    Form3 newform3 = new Form3(this.Controls["des" + i + "_1"].Text, numonlyvalue, img);
+                    Form3 newform3 = new Form3(this.Controls["des" + i + "_1"].Text, numonlyvalue, img,seat_num);
                     newform3.ShowDialog();
                     Close();
                 }                          //img= 선택한 backgroundimgage에서 추출
