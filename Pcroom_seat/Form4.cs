@@ -91,6 +91,8 @@ namespace Pcroom_seat
 
                     dcom.ExecuteNonQuery();  //DB 업데이트
 
+                    //commandString = "INSERT INTO ORDERLIST (ORDERLIST_ID , ORDERNUMBER , MENU_ID , ORDERDATE , ORDER_QUANTITY , MESSAGE ) VALUES ( "
+
                 }
 
             }
