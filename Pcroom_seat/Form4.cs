@@ -99,7 +99,7 @@ namespace Pcroom_seat
                     errorcheck = 3;
                     while (dr.Read())
                     {
-                        ordernum = dr.GetInt32(0);      
+                        ordernum = Convert.ToInt32(dr.GetValue(0))+1;   
                     }
                     errorcheck = 4;
 
